@@ -43,6 +43,9 @@ pipeline{
 
         stage('Deploy'){
             agent { node {label 'agent'}}
+            environment {
+                DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
+            }
             steps{
                 sh 'chmod  777 ./scripts/deploy.sh'
                 sh './scripts/deploy.sh'
