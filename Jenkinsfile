@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         CI = 'true'
-        DOCKER_IMAGE = "thang/thang-react-app"
+        DOCKER_IMAGE = "daband20001809/thang-react-app"
     }
 
     stages{
