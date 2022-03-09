@@ -16,7 +16,7 @@ pipeline{
             }
             steps{
                 sh 'npm install'
-                sh './scripts/test.sh'
+                sh 'sudo ./scripts/test.sh'
             }           
         }
  /* 
