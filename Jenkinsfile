@@ -44,8 +44,9 @@ pipeline{
         stage('Deploy'){
             agent { node {label 'master'}}
             steps{
-                sh "kubectl apply -f deploy-app.yaml"
-                sh "kubectl apply -f service-app.yaml"
+                sh "kubectl --kubeconfig kubeconfig.yaml get nodes"
+                sh "kubectl --kubeconfig kubeconfig.yaml apply -f deploy-app.yaml"
+                sh "kubectl --kubeconfig kubeconfig.yaml apply -f service-app.yaml"
             }
         }
         
