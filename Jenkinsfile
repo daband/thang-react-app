@@ -43,10 +43,16 @@ pipeline{
 
         stage('Deploy'){
             agent { node {label 'agent'}}
+            environment {
+                DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
+            }
             steps{
+                sh 'chmod  777 ./scripts/deploy.sh'
+                sh './scripts/deploy.sh'
                 sh "kubectl --kubeconfig kubeconfig.yaml get nodes"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f deploy-app.yaml"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f service-app.yaml"
+                sh "kubectl --kubeconfig kubeconfig.yaml set image deployment/react-app-deploy thang-react-app=daband20001809/thang-react-app:${DOCKER_TAG} --record"
             }
         }
         
@@ -55,10 +61,10 @@ pipeline{
 
     post{
         success{
-            echo "Successful"
+            echo "Successfulllllll"
         }
         failure{
-            echo "Faileddddddd"
+            echo "Failedddddddddddd"
         }
     }
 }
