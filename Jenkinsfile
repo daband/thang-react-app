@@ -22,7 +22,7 @@ pipeline{
         }
   
         stage('Build'){
-            agent { node {label 'main'}}
+            agent { node {label 'master'}}
             environment {
                 DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
             }
