@@ -49,6 +49,7 @@ pipeline{
                 sh "kubectl --kubeconfig kubeconfig.yaml get nodes"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f deploy-app.yaml"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f service-app.yaml"
+                sh "kubectl --kubeconfig set image deployment/react-app-deploy thang-react-app=daband20001809/thang-react-app:${DOCKER_TAG} --record"
             }
         }
         
