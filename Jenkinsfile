@@ -1,4 +1,4 @@
-pipeline {
+pipeline{
     agent none 
 
     environment{
@@ -19,7 +19,7 @@ pipeline {
                 sh './scripts/test.sh'
             }           
         }
-/* 
+ /* 
         stage('Build'){
             agent { node {label 'main'}}
             environment {
@@ -38,9 +38,10 @@ pipeline {
                sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
                sh "docker image rm ${DOCKER_IMAGE}:latest"
             }
-        }   
+        }  
+        */ 
     }
-    */
+
 
     post{
         success{
