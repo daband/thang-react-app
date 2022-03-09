@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-      <h1> Hello ThangReactJsdd! </h1>
+      <h1> Hello ThangReactJsddddd! </h1>
       </header>
     </div>
   );
