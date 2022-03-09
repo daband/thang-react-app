@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: react-app-deploy
+    labels: 
+       app: thang-react-app
+spec: 
+    replicas: 1
+    selector:
+       matchLabels: 
+         app: thang-react-app
+    template: 
+      metadata: 
+       labels: 
+          app: thang-react-app
+      spec: 
+        containers:
+         - name: thang-react-app
+           image: daband20001809/thang-react-app:latest
+           imagePullPolicy: IfNotPresent
+           ports:
+             - containerPort: 3200

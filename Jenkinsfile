@@ -40,6 +40,14 @@ pipeline{
                sh "docker image rm ${DOCKER_IMAGE}:latest"
             }
         }  
+
+        stage('Deploy'){
+            agent { node {label 'master'}}
+            steps{
+                sh "kubectl apply -f deploy-app.yaml"
+                sh "kubectl apply -f service-app.yaml"
+            }
+        }
         
     }
 
