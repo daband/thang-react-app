@@ -20,7 +20,7 @@ pipeline{
                 sh './scripts/test.sh'
             }           
         }
- /* 
+  
         stage('Build'){
             agent { node {label 'main'}}
             environment {
@@ -40,7 +40,7 @@ pipeline{
                sh "docker image rm ${DOCKER_IMAGE}:latest"
             }
         }  
-        */ 
+        
     }
 
 
