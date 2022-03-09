@@ -42,7 +42,7 @@ pipeline{
         }  
 
         stage('Deploy'){
-            agent { node {label 'master'}}
+            agent { node {label 'agent'}}
             steps{
                 sh "kubectl --kubeconfig kubeconfig.yaml get nodes"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f deploy-app.yaml"
