@@ -16,7 +16,8 @@ pipeline{
             }
             steps{
                 sh 'npm install'
-                sh 'sudo ./scripts/test.sh'
+                sh 'chmod  777 ./scripts/test.sh'
+                sh './scripts/test.sh'
             }           
         }
  /* 
