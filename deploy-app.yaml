@@ -19,4 +19,4 @@ spec:
            image: daband20001809/thang-react-app:latest
            imagePullPolicy: IfNotPresent
            ports:
-             - containerPort: 3200
+             - containerPort: 80

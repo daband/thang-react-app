@@ -10,7 +10,7 @@ spec:
   type: LoadBalancer
   ports:
   - name: thang-react-app
-    port: 3200
+    port: 80
     targetPort: 5000
   selector:
     app: thang-react-app
