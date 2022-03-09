@@ -19,7 +19,7 @@ pipeline {
                 sh './scripts/test.sh'
             }           
         }
-
+/* 
         stage('Build'){
             agent { node {label 'main'}}
             environment {
@@ -40,6 +40,7 @@ pipeline {
             }
         }   
     }
+    */
 
     post{
         success{
