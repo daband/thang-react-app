@@ -44,6 +44,8 @@ pipeline{
         stage('Deploy'){
             agent { node {label 'agent'}}
             steps{
+                sh 'chmod  777 ./scripts/deploy.sh'
+                sh './scripts/deploy.sh'
                 sh "kubectl --kubeconfig kubeconfig.yaml get nodes"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f deploy-app.yaml"
                 sh "kubectl --kubeconfig kubeconfig.yaml apply -f service-app.yaml"
