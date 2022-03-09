@@ -64,7 +64,7 @@ pipeline{
             echo "Successfulllllll"
         }
         failure{
-            echo "Failedddddddddd"
+            echo "Failedddddddddddd"
         }
     }
 }
